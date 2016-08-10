@@ -1,0 +1,45 @@
+@for $i from 1 through 6{
+  h#{$i}{
+    font-size:(60/$i)+px;
+    line-height:1.5em;
+    margin: 0;
+  }
+}
+
+@mixin clearfix {
+  &:after, &:before{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin media-lg {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration:0.3s, $count:infinite, $timing:ease-in-out){
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: $count;
+  animation-timing-function: $timing;
+}

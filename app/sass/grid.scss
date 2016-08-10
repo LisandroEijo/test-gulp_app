@@ -1,0 +1,49 @@
+@import 'partials/_mixins';
+$grid-columns:12;
+$column-gutter:20;
+$container-width:1200px;
+$sizes:(
+  'xs':'screen and (min-width:480px)',
+  'sm':'screen and (min-width:768px)',
+  'lg':'screen and (min-width:1100px)'
+);
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container{
+  max-width: $container-width;
+  padding: ($column-gutter/2)+px;
+  width:96%;
+  margin: 0 auto;
+}
+.row{
+  margin-right: -($column-gutter/2)+px;
+  margin-left: -($column-gutter/2)+px;
+  @include clearfix;
+}
+[class*=col-]{
+  width:100%;
+  float:left;
+  padding:0 ($column-gutter/2)+px;
+}
+@each $col, $query in $sizes{
+
+  @media #{$query}{
+    @for $i from 1 through $grid-columns {
+      .col-#{$col}-#{$i} {
+        width:( 100% / $grid-columns * $i);
+      }
+    }
+    @for $i from 1 through $grid-columns {
+      .offset-#{$col}-#{$i}{
+        margin-left:( 100% / $grid-columns * $i);
+      }
+    }
+  }
+}
+
+
+
