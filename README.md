@@ -1,4 +1,4 @@
-##Gulp Test App
+## Gulp Test App
 This is a very litle static project to text gulp. I'd follow https://css-tricks.com/gulp-for-beginners/
 
 There is two main task, one that that watch for scss files and compile to css. 
